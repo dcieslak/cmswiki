@@ -10,10 +10,21 @@
 <body>
 
 
+<!--
+<script type="text/javascript" src="http://aplikacja.kei.pl/fckeditor/fckeditor.js"></script>
+<script type="text/javascript">
+window.onload = function()
+{
+var oFCKeditor = new FCKeditor( 'mytext' ) ;
+oFCKeditor.BasePath = "http://aplikacja.kei.pl/fckeditor/" ;
+oFCKeditor.ReplaceTextarea() ;
+}
+</script>
+-->
 
 
 <!--
-<script type="text/javascript" src="http://tinymce.moxiecode.com/js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript" src="http://aplikacja.kei.pl/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
 tinyMCE.init({
 	// General options
@@ -35,7 +46,7 @@ tinyMCE.init({
 	content_css : "css/example.css",
 
 	// Drop lists for link/image/media/template dialogs
-	template_external_list_url : "http://tinymce.moxiecode.com/example/js/template_list.js",
+	u/template_external_list_url : "http://tinymce.moxiecode.com/example/js/template_list.js",
 	external_link_list_url : "http://tinymce.moxiecode.com/examples/js/link_list.js",
 	external_image_list_url : "http://tinymce.moxiecode.com/examples/js/image_list.js",
 	media_external_list_url : "http://tinymce.moxiecode.com/examples/js/media_list.js",
@@ -49,11 +60,9 @@ tinyMCE.init({
 </script>
 -->
 
-
-
 <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
 bkLib.onDomLoaded(function() {
-    new nicEditor({fullPanel : true}).panelInstance('text');
+    new nicEditor({fullPanel : true}).panelInstance('mytext');
 });
 </script>
 
@@ -65,11 +74,12 @@ bkLib.onDomLoaded(function() {
 ([page])
 
 <p>
-<TEXTAREA style="width: 100%; height: 500px" id=text NAME=text>[body]
+<TEXTAREA style="width: 100%; height: 500px" id=mytext NAME=text>[body]
 </TEXTAREA>
 <BR />
 </FORM>
 </CENTER>
+
 
 </body>
 </html>
