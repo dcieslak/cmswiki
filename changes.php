@@ -26,7 +26,6 @@ while(list(,$sLine) = each($arr))
 
 	$sDate = substr($sLine, 0, $i);
 	$sDay = substr($sLine, 0, 10);
-	$sTime = substr($sLine, 11, 5);
 
 	if($sDay != $sOldDay)
 	{
@@ -39,7 +38,7 @@ while(list(,$sLine) = each($arr))
     $sFile = urldecode($sFileUrl);
 
 	$sText = htmlspecialchars(substr($sLine, $i+1));
-	$sAppendBody .= "$sTime <A HREF=\"view.php?$sFileUrl\">$sFile</A>";
+	$sAppendBody .= "<A HREF=\"view.php?$sFileUrl\">$sFile</A>";
 	$sAppendBody .= "<BR />\n";
 }
 
