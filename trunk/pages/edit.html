@@ -62,15 +62,56 @@ tinyMCE.init({
 
 <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
 bkLib.onDomLoaded(function() {
-    new nicEditor({fullPanel : true}).panelInstance('mytext');
+    toggleWysiwyg();
 });
 </script>
+
+
+
+
+
+<script type="text/javascript">
+function insertAtCursor(myField, myValue) {
+    //IE support
+    if (document.selection) {
+        myField.focus();
+
+        //in effect we are creating a text range with zero
+        //length at the cursor location and replacing it
+        //with myValue
+        sel = document.selection.createRange();
+        sel.text = myValue;
+    }
+    else {
+        toggleWysiwyg()
+        myField.value += myValue
+        toggleWysiwyg()
+    }
+    return false
+}
+
+area1 = null;
+function toggleWysiwyg() {
+    if(area1 == null) {
+        area1 = new nicEditor({fullPanel : true}).panelInstance('mytext',{hasPanel : true});
+    } else {
+        area1.removeInstance('mytext');
+        area1 = null;
+    }
+
+}
+</script>
+
 
 <CENTER>
 
 <FORM METHOD=POST ACTION="edit.php?[pageUrl]">
 <INPUT TYPE=SUBMIT NAME="zapisz" VALUE="   Save   ">
+<INPUT TYPE=SUBMIT NAME="anuluj" VALUE="WYSIWYG/HTML" onClick="toggleWysiwyg(); return false;">
 <INPUT TYPE=SUBMIT NAME="anuluj" VALUE="Cancel">
+
+<INPUT TYPE=SUBMIT NAME="addTable" VALUE="New Table"
+  onClick="return insertAtCursor(this.form.mytext, '<table><tr><td>FILLME</td></tr></table>')">
 ([page])
 
 <p>

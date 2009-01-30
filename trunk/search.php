@@ -13,7 +13,7 @@ if(isset($_GET["text"]) && $_GET["text"])
 	{
 		if($file == "." || $file == "..")
 			continue;
-		if(!strpos($file, ".txt"))
+		if(!strpos($file, ".html"))
 			continue;
 		$lines = file("pages/" . $file);
 
@@ -39,6 +39,7 @@ if(isset($_GET["text"]) && $_GET["text"])
     $pageBody = $sAppendBody;
     $pageUrl = "";
     $modified = "";
+
     include(TEMPLATE);
 }
 else {
