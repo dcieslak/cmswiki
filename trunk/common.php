@@ -36,7 +36,7 @@ function loadPage($pageName, $replaceMap)
     $f = @fopen($sPath, "rt");
     if($f)
     {
-        $s = fread($f, filesize($sPath));
+        $s = fread($f, filesize($sPath)+1);
         fclose($f);
 
         while(list($from,$to) = each($replaceMap))
@@ -72,7 +72,12 @@ function savePage($pageName, $newPageBody, $originalPageBody)
         $newBodyPath = tempFile($newPageBody);
         $originalBodyPath = tempFile($originalPageBody);
         // Clen up CRLF into LF to allow proper merge
-        $tmpFilePath = tempFile(str_replace("\r", "", file_get_contents($sFile)));
+        if (file_exists($sFile)) {
+            $tmpFilePath = tempFile(str_replace("\r", "", file_get_contents($sFile)));
+        }
+        else {
+            $tmpFilePath = tempFile("");
+        }
 
         system("set -x; merge " . $tmpFilePath . " "
             . $originalBodyPath . " " . $newBodyPath,
@@ -81,7 +86,7 @@ function savePage($pageName, $newPageBody, $originalPageBody)
 
             # replace conflict markers
             $f = fopen($tmpFilePath, "rt");
-            $s = fread($f, filesize($tmpFilePath));
+            $s = fread($f, filesize($tmpFilePath)+1);
             fclose($f);
 
             $s = ereg_replace("<<<<<<<[^\n]*", '<blink style="color: red">CONFLICT</blink>', $s);
