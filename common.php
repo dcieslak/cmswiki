@@ -63,34 +63,40 @@ function tempFile($fileBody) {
 # with body = sText
 function savePage($pageName, $newPageBody, $originalPageBody)
 {
-    $newPageBody = $newPageBody;
-    $originalPageBody = $originalPageBody;
+    $newPageBody = str_replace("\r", "", $newPageBody);
+    $originalPageBody = str_replace("\r", "", $originalPageBody);
 
     $sFile = getPagePath($pageName);
 
     if (USE_MERGE) {
         $newBodyPath = tempFile($newPageBody);
         $originalBodyPath = tempFile($originalPageBody);
+        // Clen up CRLF into LF to allow proper merge
+        $tmpFilePath = tempFile(str_replace("\r", "", file_get_contents($sFile)));
 
-        system("set -x; merge " . $sFile . " "
+        system("set -x; merge " . $tmpFilePath . " "
             . $originalBodyPath . " " . $newBodyPath,
             &$result);
         if ($result > 0) {
+
             # replace conflict markers
-            $f = fopen($sFile, "rt");
+            $f = fopen($tmpFilePath, "rt");
             $s = fread($f, 99999999);
             fclose($f);
 
-            $s = ereg_replace("<<<<<<<*", "CONFLICT AREA START", $s);
-            $s = ereg_replace(">>>>>>>*", "CONFLICT AREA END", $s);
+            $s = ereg_replace("<<<<<<<[^\n]*", '<blink style="color: red">CONFLICT</blink>', $s);
+            $s = ereg_replace(">>>>>>>[^\n]*", '<blink style="color: red">END</blink>', $s);
 
             $f = fopen($sFile, "wt");
             fwrite($f, $s);
-            fclose($f);
+        }
+        else {
+            copy($tmpFilePath, $sFile);
         }
 
-        //unlink($originalBodyPath);
-        //unlink($newBodyPath);
+        unlink($originalBodyPath);
+        unlink($newBodyPath);
+        unlink($tmpFilePath);
     }
     else {
         # just overwrite file, last writer wins
