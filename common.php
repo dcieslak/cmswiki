@@ -8,7 +8,7 @@ require("config.php");
 
 $QUERY_STRING = getenv("QUERY_STRING");
 
-$db = PAGES_DIRECTORY;
+$db = "pages";
 if($QUERY_STRING != "")
 	$page = urldecode($QUERY_STRING);
 else

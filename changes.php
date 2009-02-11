@@ -11,7 +11,7 @@ while($file = readdir($dir))
 		continue;
 	if(!strpos($file, ".html"))
 		continue;
-	$stat = stat(PAGES_DIRECTORY . "/" . $file);
+	$stat = stat("pages/" . $file);
 	$modified = strftime("%Y-%m-%d %H:%M",$stat[10]);
 	$arr[] = "$modified\t$file";
 }
