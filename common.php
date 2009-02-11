@@ -36,7 +36,7 @@ function loadPage($pageName, $replaceMap)
     $f = @fopen($sPath, "rt");
     if($f)
     {
-        $s = fread($f, 999999);
+        $s = fread($f, filesize($sPath));
         fclose($f);
 
         while(list($from,$to) = each($replaceMap))
@@ -81,7 +81,7 @@ function savePage($pageName, $newPageBody, $originalPageBody)
 
             # replace conflict markers
             $f = fopen($tmpFilePath, "rt");
-            $s = fread($f, 99999999);
+            $s = fread($f, filesize($tmpFilePath));
             fclose($f);
 
             $s = ereg_replace("<<<<<<<[^\n]*", '<blink style="color: red">CONFLICT</blink>', $s);
