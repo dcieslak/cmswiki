@@ -12,7 +12,7 @@ else if(isset($_POST["anuluj"])) {
 else {
     $pageUrl = urlencode($page);
 
-    $sAppendBody = loadPage("edit", array(
+    $sAppendBody = loadPage(EDIT_PAGE_NAME, array(
         "[page]" => $page,
         "[pageUrl]" => $pageUrl,
         "[body]" => htmlspecialchars(loadPage($page, array()))
