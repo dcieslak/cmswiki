@@ -1,0 +1,45 @@
+<html>
+
+
+<head>
+
+<script type="text/javascript" src="/fckeditor/fckeditor.js"></script>
+<script type="text/javascript">
+window.onload = function()
+{
+var oFCKeditor = new FCKeditor( 'text' ) ;
+oFCKeditor.BasePath = "/fckeditor/" ;
+oFCKeditor.Height = "90%";
+oFCKeditor.ReplaceTextarea() ;
+}
+</script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+<CENTER>
+
+<FORM METHOD=POST ACTION="edit.php?[pageUrl]">
+<INPUT TYPE=SUBMIT NAME="zapisz" VALUE="   Save   ">
+<INPUT TYPE=SUBMIT NAME="anuluj" VALUE="Cancel">
+([page])
+
+<p>
+
+
+<TEXTAREA style="margin-bottom: auto;" id="text" NAME="text">[body]
+</TEXTAREA>
+
+
+<BR />
+</FORM>
+</CENTER>
+
+
+</body>
+</html>
+
+
