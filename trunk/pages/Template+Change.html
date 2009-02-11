@@ -1,1 +1,20 @@
-First, look at template supplied with installation ([[Download]]). You can find here some PHP code, let's see:<br><br><div style="margin-left: 40px;"><span style="font-family: courier new;">&lt;?php render("menu") ?&gt;</span><br><br></div>renders data from pages/menu.html subdirectory. The same for:<br><br><div style="margin-left: 40px;"><span style="font-family: courier new;">&lt;?php render("sidebar") ?&gt;</span><br></div><br>And there are main page body:<br><br><div style="margin-left: 40px; font-family: courier new;">&lt;?php echo($pageBody); ?&gt;<br>&lt;a href="edit.php?&lt;?php echo($page); ?&gt;"&gt;edit&lt;/a&gt;<br></div><br>Above code fragment renders main body of a page and places edit link on bottom.<br><br>How to change default theme? It's simple:<br><ol><li>Copy your theme files on your server</li><li>Modify config.TEMPLATE constant to your html template</li><li>Insert links similar to above in apropriate places in a file</li><li>And THAT'S ALL!</li></ol>Note: remember about [[Security]].<br><br><br>
+<p>First, look at template supplied with installation ([[Download]]). You can find here some PHP code, let's see:</p>
+<div style="margin-left: 40px;"><span style="font-family: courier new;">&lt;?php render(&quot;menu&quot;) ?&gt;</span><br />
+&nbsp;</div>
+<p>renders data from pages/menu.html subdirectory. The same for:</p>
+<div style="margin-left: 40px;"><span style="font-family: courier new;">&lt;?php render(&quot;sidebar&quot;) ?&gt;</span></div>
+<p><br />
+And there are main page body:</p>
+<div style="margin-left: 40px; font-family: courier new;">&lt;?php echo($pageBody); ?&gt;<br />
+&lt;a href=&quot;edit.php?&lt;?php echo($page); ?&gt;&quot;&gt;edit&lt;/a&gt;</div>
+<p><br />
+Above code fragment renders main body of a page and places edit link on bottom.<br />
+<br />
+How to change default theme? It's simple:</p>
+<ol>
+    <li>Copy your theme files on your server</li>
+    <li>Modify config.TEMPLATE constant to your html template</li>
+    <li>Insert links similar to above in apropriate places in a file</li>
+    <li>And THAT'S ALL!</li>
+</ol>
+<p>Note: remember about [[Security]].</p>

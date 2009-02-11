@@ -3,7 +3,9 @@
 require("common.php");
 
 if(isset($_POST["zapisz"])) {
-	savePage($page, stripslashes($_POST["text"]));
+    savePage($page,
+        stripslashes($_POST["text"]),
+        stripslashes($_POST["originalText"]));
     include('view.php');
 }
 else if(isset($_POST["anuluj"])) {

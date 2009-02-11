@@ -1,4 +1,49 @@
-Comparision of several Wiki implementation speed. Method of comparision: I used the following call:<br><br><span style="font-family: monospace;"></span><div style="margin-left: 40px;"><span style="font-family: monospace;"></span>ab -n 10 -c 5 http://localhost/URL_OF_WIKI<br></div><br>On PIII 400Mhz VPS machine with low load (few runs, average result selected). I evaluated few Wikis and here are the test results:<br><br>
-
-
-<center><table border="1" cellpadding="4" cellspacing="0"><tbody><tr><th>Wiki brand<br></th><th>requests per second</th></tr><tr><td><a target="" title="" href="http://twiki.org/">TWiki</a> (CGI)<br></td><td style="text-align: right;">0.6<br></td></tr><tr><td style="vertical-align: top;"><a target="" title="" href="http://info.tikiwiki.org">tiki-wiki</a><br></td><td style="vertical-align: top; text-align: right;">0.6<br></td></tr><tr><td style="vertical-align: top; text-align: left;"><a target="" title="" href="http://sourceforge.net/projects/phpwiki/">phpwiki</a><br></td><td style="vertical-align: top; text-align: right;">1.2<br></td></tr><tr><td style="vertical-align: top;"><a target="" title="" href="http://moinmo.in/">moinmoin</a> (CGI)<br></td><td style="vertical-align: top; text-align: right;">1.2<br></td></tr><tr><td style="vertical-align: top;"><a target="" title="" href="http://www.mediawiki.org/">mediawiki</a></td><td style="vertical-align: top; text-align: right;">1.5</td></tr><tr><td style="vertical-align: top;"><a target="" title="" href="http://www.dokuwiki.org/dokuwiki">dokuwiki</a><br></td><td style="vertical-align: top; text-align: right;">4.0<br></td></tr><tr><td style="vertical-align: top;">[[CMS Wiki]]<br></td><td style="vertical-align: top; text-align: right;">600.0<br></td></tr><tr><td style="vertical-align: top;">static file<br></td><td style="vertical-align: top; text-align: right;">6000.0<br></td></tr></tbody></table><div style="text-align: left;"><br>As you can see [[CMS Wiki]] is pretty <span style="font-weight: bold;">FASSSSSST</span>.<br></div></center>
+<p>Comparision of several Wiki implementation speed. Method of comparision: I used the following call:<br />
+&nbsp;</p>
+<div style="margin-left: 40px;">ab -n 10 -c 5 http://localhost/URL_OF_WIKI</div>
+<p><br />
+On PIII 400Mhz VPS machine with low load (few runs, average result selected). I evaluated few Wikis and here are the test results:</p>
+<center>
+<table cellspacing="0" cellpadding="4" border="1">
+    <tbody>
+        <tr>
+            <th>Wiki brand</th>
+            <th>requests per second</th>
+        </tr>
+        <tr>
+            <td><a href="http://twiki.org/" title="" target="">TWiki</a> (CGI)</td>
+            <td style="text-align: right;">0.6</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;"><a href="http://info.tikiwiki.org" title="" target="">tiki-wiki</a></td>
+            <td style="vertical-align: top; text-align: right;">0.6</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top; text-align: left;"><a href="http://sourceforge.net/projects/phpwiki/" title="" target="">phpwiki</a></td>
+            <td style="vertical-align: top; text-align: right;">1.2</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;"><a href="http://moinmo.in/" title="" target="">moinmoin</a> (CGI)</td>
+            <td style="vertical-align: top; text-align: right;">1.2</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;"><a href="http://www.mediawiki.org/" title="" target="">mediawiki</a></td>
+            <td style="vertical-align: top; text-align: right;">1.5</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;"><a href="http://www.dokuwiki.org/dokuwiki" title="" target="">dokuwiki</a></td>
+            <td style="vertical-align: top; text-align: right;">4.0</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">[[CMS Wiki]]</td>
+            <td style="vertical-align: top; text-align: right;">600.0</td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">static file</td>
+            <td style="vertical-align: top; text-align: right;">6000.0</td>
+        </tr>
+    </tbody>
+</table>
+<div style="text-align: left;"><br />
+As you can see [[CMS Wiki]] is pretty <span style="font-weight: bold;">FASSSSSST</span>.</div>
+</center>
