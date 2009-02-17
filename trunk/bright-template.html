@@ -49,16 +49,12 @@
 		<div id="main">	
 			
             <br />
-            <?php echo($pageBody); ?>
-            <p align="right">
-            <a href="edit.php?<?php echo($page); ?>"><img src="bright-template_files/black_edit.png" alt="edit this
-                page" title="edit this page" class="no-border"></a>
-			</p>
+            <?=$pageBody?>
 							
+            <br clear="both" />
 		</div>	
 			
 		<div id="rightbar">
-			
             <?php render("rightbar") ?>
 		</div>			
 			
@@ -79,9 +75,9 @@
 	
 	<div class="footer-right">
 		<p class="align-right">
-		<a href="index.html">Home</a>&nbsp;|&nbsp;
-  		<a href="index.html">SiteMap</a>&nbsp;|&nbsp;
-   	<a href="index.html">RSS Feed</a>
+		<a href="view.php">Home</a>&nbsp;|&nbsp;
+  		<a href="changes.php">SiteMap</a>&nbsp;|&nbsp;
+   	    <a href="edit.php?<?=$pageUrl?>">edit</a>
 		</p>
 	</div>
 	
