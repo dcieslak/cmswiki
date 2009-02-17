@@ -3,9 +3,15 @@
 require("common.php");
 
 if(isset($_POST["zapisz"])) {
+    if (isset($_POST["originalText"])) {
+        $originalText = stripslashes($_POST["originalText"]);
+    }
+    else {
+        $originalText = "";
+    }
+
     savePage($page,
-        stripslashes($_POST["text"]),
-        stripslashes($_POST["originalText"]));
+        stripslashes($_POST["text"]), $originalText);
     include('view.php');
 }
 else if(isset($_POST["anuluj"])) {
