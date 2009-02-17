@@ -32,11 +32,13 @@ if(isset($_GET["text"]) && $_GET["text"])
 	{
 		$k = strpos($sLine, ".");
 		$sFile = substr($sLine, 0, $k);
-		$sFileUrl = urlencode($sFile);
-		$sAppendBody .= "<A HREF=\"view.php?$sFileUrl\">$sFile</A>";
+		$page = urldecode($sFile);
+		$sAppendBody .= "<A HREF=\"view.php?$sFile\">$page</A>";
 		$sAppendBody .= "<BR>";
 	}
+
     $pageBody = $sAppendBody;
+    $page = "Search Results";
     $pageUrl = "";
     $modified = "";
 
