@@ -2,19 +2,19 @@
 
 require("common.php");
 
-if(isset($_POST["zapisz"])) {
-    if (isset($_POST["originalText"])) {
-        $originalText = stripslashes($_POST["originalText"]);
+if(isset($_REQUEST["zapisz"])) {
+    if (isset($_REQUEST["originalText"])) {
+        $originalText = stripslashes($_REQUEST["originalText"]);
     }
     else {
         $originalText = "";
     }
 
     savePage($page,
-        stripslashes($_POST["text"]), $originalText);
+        stripslashes($_REQUEST["text"]), $originalText);
     include('view.php');
 }
-else if(isset($_POST["anuluj"])) {
+else if(isset($_REQUEST["anuluj"])) {
     include('view.php');
 }
 else {
