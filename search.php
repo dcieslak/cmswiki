@@ -2,11 +2,11 @@
 
 if(!isset($db)) require("common.php");
 
-@$sText = $_GET["text"];
+@$sText = $_REQUEST["text"];
 
-if(isset($_GET["text"]) && $_GET["text"])
+if(isset($_REQUEST["text"]) && $_REQUEST["text"])
 {
-	$sSearch = $_GET["text"];
+	$sSearch = $_REQUEST["text"];
 	$arr = array();
 	$dir = opendir("pages");
 	while($file = readdir($dir))
