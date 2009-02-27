@@ -11,7 +11,7 @@ if(isset($_REQUEST["text"]) && $_REQUEST["text"])
 	$dir = opendir("pages");
 	while($file = readdir($dir))
 	{
-		if($file == "." || $file == "..")
+		if($file[0] == ".")
 			continue;
 		if(!strpos($file, ".html"))
 			continue;
