@@ -68,6 +68,11 @@ function savePage($pageName, $newPageBody, $originalPageBody)
 
     $sFile = getPagePath($pageName);
 
+    if (trim($newPageBody) == "") {
+        unlink($sFile);
+        return;
+    }
+
     if (USE_MERGE) {
         $newBodyPath = tempFile($newPageBody);
         $originalBodyPath = tempFile($originalPageBody);
