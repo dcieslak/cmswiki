@@ -7,7 +7,7 @@ $arr = array();
 $dir = opendir($db);
 while($file = readdir($dir))
 {
-	if($file == "." || $file == "..")
+	if($file[0] == ".")
 		continue;
 	if(!strpos($file, ".html"))
 		continue;
