@@ -3,11 +3,11 @@
 if(!isset($db)) require("common.php");
 
 $pages = array();
-if (isset($_REQUEST["title"]) {
-    $title = $_REQUEST["title"]
+if (isset($_REQUEST["title"])) {
+    $title = $_REQUEST["title"];
 }
 else {
-    $title = "CMSWiki printAll preview"
+    $title = "CMSWiki printAll preview";
 }
 
 clearstatcache();
