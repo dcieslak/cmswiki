@@ -1,0 +1,22 @@
+<html>
+
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<title>
+$title
+</title>
+</head>
+
+<body>
+
+<?php while (list(,$arr) = each($pages)) { ?>
+    <h1><?=$arr[0]?></h1>
+    <?=$arr[1]?>
+<?php } ?>
+
+
+
+</body>
+
+</html>
