@@ -22,11 +22,13 @@ while($file = readdir($dir))
 	$k = strrpos($file, ".");
 
 	$encodedPageName = substr($file, 0, $k);
-    $pageBody = getWikiPage($encodedPageName);
     $page = urldecode($encodedPageName);
+    $pageBody = getWikiPage($encodedPageName);
 
     $pages[] = array($page, $pageBody);
 }
+
+sort($pages);
 
 include(PRINT_TEMPLATE);
 
