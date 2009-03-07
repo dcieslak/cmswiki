@@ -2,7 +2,7 @@
 
 require("common.php");
 
-if(isset($_REQUEST["zapisz"])) {
+if(isset($_REQUEST["zapisz"]) || isset($_REQUEST["save"])) {
     if (isset($_REQUEST["originalText"])) {
         $originalText = stripslashes($_REQUEST["originalText"]);
     }
@@ -11,11 +11,18 @@ if(isset($_REQUEST["zapisz"])) {
     }
 
     savePage($page,
-        stripslashes($_REQUEST["text"]), $originalText);
-    include('view.php');
+        stripslashes($_REQUEST["text"]),
+        $originalText);
+
+    if(isset($_REQUEST["zapisz"])) {
+        header("Location: view.php?" . $page);
+    }
+    else {
+        header("Location: edit.php?" . $page);
+    }
 }
 else if(isset($_REQUEST["anuluj"])) {
-    include('view.php');
+    header("Location: view.php?" . $page);
 }
 else {
     $pageUrl = urlencode($page);
