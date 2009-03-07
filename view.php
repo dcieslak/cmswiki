@@ -2,8 +2,7 @@
 
 if(!isset($db)) require("common.php");
 
-$lastModified = @pageModified($pageName);
-$encodedPageBody = getWikiPage($pageName);
+$pageBody = getWikiPage($pageName);
 
 include(VIEW_TEMPLATE);
 
