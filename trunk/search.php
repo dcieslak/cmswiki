@@ -32,15 +32,15 @@ if(isset($_REQUEST["text"]) && $_REQUEST["text"])
 	{
 		$k = strpos($sLine, ".");
 		$sFile = substr($sLine, 0, $k);
-		$page = urldecode($sFile);
-		$sAppendBody .= "<A HREF=\"view.php?$sFile\">$page</A>";
+		$pageName = urldecode($sFile);
+		$sAppendBody .= "<A HREF=\"view.php?$sFile\">$pageName</A>";
 		$sAppendBody .= "<BR>";
 	}
 
     $pageBody = $sAppendBody;
-    $page = "Search Results";
-    $pageUrl = "";
-    $modified = "";
+    $pageName = "Search Results";
+    $pageID = "";
+    $lastModified = "";
 
     include(TEMPLATE);
 }

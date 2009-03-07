@@ -10,9 +10,11 @@ $QUERY_STRING = getenv("QUERY_STRING");
 
 $db = "pages";
 if($QUERY_STRING != "")
-    $page = urldecode($QUERY_STRING);
+    $pageName = urldecode($QUERY_STRING);
 else
-    $page = MAIN_PAGE_NAME;
+    $pageName = MAIN_PAGE_NAME;
+
+$pageID = urlencode($pageName);
 
 $sAppendBody = "";
 
@@ -152,8 +154,8 @@ function pageModified($pageName)
 {
     $sFile = getPagePath($pageName);
     $stat = stat($sFile);
-    $modified = strftime(MODIFIED_FORMAT ,$stat[10]);
-    return $modified;
+    $lastModified = strftime(MODIFIED_FORMAT ,$stat[10]);
+    return $lastModified;
 }
 
 function getWikiPage($pageNameName)

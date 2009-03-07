@@ -10,35 +10,27 @@ if(isset($_REQUEST["zapisz"]) || isset($_REQUEST["save"])) {
         $originalText = "";
     }
 
-    savePage($page,
+    savePage($pageName,
         stripslashes($_REQUEST["text"]),
         $originalText);
 
     if(isset($_REQUEST["zapisz"])) {
-        header("Location: view.php?" . $page);
+        header("Location: view.php?" . $pageID);
     }
     else {
-        header("Location: edit.php?" . $page);
+        header("Location: edit.php?" . $pageID);
     }
 }
 else if(isset($_REQUEST["anuluj"])) {
-    header("Location: view.php?" . $page);
+    header("Location: view.php?" . $pageID);
 }
 else {
-    $pageUrl = urlencode($page);
-
-    $sAppendBody = loadPage(EDIT_PAGE_NAME, array(
-        "[page]" => $page,
-        "[pageUrl]" => $pageUrl,
-        "[body]" => htmlspecialchars(loadPage($page, array()))
-    ));
-
-    $pageUrl = urlencode($page);
-    //$page = 
-    $modified = @pageModified($page);
+    $lastModified = @pageModified($page);
     $pageBody = $sAppendBody;
 
-    echo $pageBody;
+    $encodedPageBody = htmlspecialchars(loadPage($pageName, array()));
+
+    include(EDIT_TEMPLATE);
 }
 
 ?>

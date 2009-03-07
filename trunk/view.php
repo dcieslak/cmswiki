@@ -2,9 +2,8 @@
 
 if(!isset($db)) require("common.php");
 
-$pageUrl = urlencode($page);
-$modified = @pageModified($page);
-$pageBody = getWikiPage($page);
+$lastModified = @pageModified($pageName);
+$pageBody = getWikiPage($pageName);
 
 include(TEMPLATE);
 
