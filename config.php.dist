@@ -3,6 +3,8 @@
 # main configuration file
 
 define("MAIN_PAGE_NAME","CMS Wiki");
+
+# format of $lastModified variable
 define("MODIFIED_FORMAT","%Y-%m-%d %H:%M");
 
 # normal template file

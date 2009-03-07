@@ -12,8 +12,8 @@ while($file = readdir($dir))
 	if(!strpos($file, ".html"))
 		continue;
 	$stat = stat("pages/" . $file);
-	$modified = strftime("%Y-%m-%d %H:%M",$stat[10]);
-	$arr[] = "$modified\t$file";
+	$lastModified = strftime("%Y-%m-%d %H:%M",$stat[10]);
+	$arr[] = "$lastModified\t$file";
 }
 
 rsort($arr);
@@ -43,8 +43,8 @@ while(list(,$sLine) = each($arr))
 }
 
 $pageBody = $sAppendBody;
-$pageUrl = "";
-$modified = "";
+$pageID = "";
+$lastModified = "";
 include(TEMPLATE);
 
 ?>
