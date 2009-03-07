@@ -15,6 +15,7 @@ else
     $pageName = MAIN_PAGE_NAME;
 
 $pageID = urlencode($pageName);
+$lastModified = pageModified($pageName);
 
 $sAppendBody = "";
 
