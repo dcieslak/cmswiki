@@ -3,9 +3,9 @@
 if(!isset($db)) require("common.php");
 
 $lastModified = @pageModified($pageName);
-$pageBody = getWikiPage($pageName);
+$encodedPageBody = getWikiPage($pageName);
 
-include(TEMPLATE);
+include(VIEW_TEMPLATE);
 
 
 ?>

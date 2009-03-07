@@ -45,6 +45,6 @@ while(list(,$sLine) = each($arr))
 $pageBody = $sAppendBody;
 $pageID = "";
 $lastModified = "";
-include(TEMPLATE);
+include(VIEW_TEMPLATE);
 
 ?>

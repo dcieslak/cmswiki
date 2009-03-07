@@ -8,12 +8,11 @@ define("MAIN_PAGE_NAME","CMS Wiki");
 define("MODIFIED_FORMAT","%Y-%m-%d %H:%M");
 
 # normal template file
-define("TEMPLATE","bright-template.html");
+define("VIEW_TEMPLATE","bright-template.html");
 # template file for printer-friendly version
 define("PRINT_TEMPLATE","print-template.html");
-
 # template page for edit
-define("EDIT_PAGE_NAME","edit-nicedit");
+define("EDIT_TEMPLATE","fckeditor-template.html");
 
 # Before switching to fckeditor install it under /fckeditor/
 #define("EDIT_PAGE_NAME","edit-fckeditor");
