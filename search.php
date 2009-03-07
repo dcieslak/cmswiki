@@ -42,7 +42,7 @@ if(isset($_REQUEST["text"]) && $_REQUEST["text"])
     $pageID = "";
     $lastModified = "";
 
-    include(TEMPLATE);
+    include(VIEW_TEMPLATE);
 }
 else {
     include("changes.php");
