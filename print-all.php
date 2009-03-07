@@ -23,7 +23,7 @@ while($file = readdir($dir))
 
 	$encodedPageName = substr($file, 0, $k);
     $page = urldecode($encodedPageName);
-    $pageBody = getWikiPage($encodedPageName);
+    $pageBody = getWikiPage($page);
 
     $pages[] = array($page, $pageBody);
 }
