@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($db)) require("common.php");
+require("common.php");
 
 $pageBody = getWikiPage($pageName);
 

@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($db)) require("common.php");
+require("common.php");
 
 @$sText = $_REQUEST["text"];
 
@@ -8,14 +8,14 @@ if(isset($_REQUEST["text"]) && $_REQUEST["text"])
 {
 	$sSearch = $_REQUEST["text"];
 	$arr = array();
-	$dir = opendir("pages");
+	$dir = opendir(PAGES_DIRECTORY);
 	while($file = readdir($dir))
 	{
 		if($file[0] == ".")
 			continue;
 		if(!strpos($file, ".html"))
 			continue;
-		$lines = file("pages/" . $file);
+		$lines = file(PAGES_DIRECTORY . "/" . $file);
 
 		if($sSearch == "" ||
 		strpos(" " . strtolower($file),
@@ -45,7 +45,7 @@ if(isset($_REQUEST["text"]) && $_REQUEST["text"])
     include(VIEW_TEMPLATE);
 }
 else {
-    include("changes.php");
+    header("Location: changes.php");
 }
 
 
