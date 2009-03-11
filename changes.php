@@ -1,17 +1,17 @@
 <?php
 
-if(!isset($db)) require("common.php");
+require("common.php");
 
 clearstatcache();
 $arr = array();
-$dir = opendir($db);
+$dir = opendir(PAGES_DIRECTORY);
 while($file = readdir($dir))
 {
 	if($file[0] == ".")
 		continue;
 	if(!strpos($file, ".html"))
 		continue;
-	$stat = stat("pages/" . $file);
+	$stat = stat(PAGES_DIRECTORY . "/" . $file);
 	$lastModified = strftime("%Y-%m-%d %H:%M",$stat[10]);
 	$arr[] = "$lastModified\t$file";
 }

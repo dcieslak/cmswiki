@@ -8,7 +8,7 @@ require("config.php");
 
 $QUERY_STRING = getenv("QUERY_STRING");
 
-$db = "pages";
+PAGES_DIRECTORY;
 if($QUERY_STRING != "")
     $pageName = urldecode($QUERY_STRING);
 else
@@ -20,13 +20,11 @@ $lastModified = pageModified($pageName);
 $sAppendBody = "";
 
 function getPagePath($pageName) {
-    global $db;
-
     if(strpos(" " . $pageName,"/"))
     {
-        return $db . "/bad_page_name.html";
+        return PAGES_DIRECTORY . "/bad_page_name.html";
     }
-    return $db . "/" . urlencode($pageName) . ".html";
+    return PAGES_DIRECTORY . "/" . urlencode($pageName) . ".html";
 
 }
 
@@ -154,9 +152,14 @@ function pageExists($pageName)
 function pageModified($pageName)
 {
     $sFile = getPagePath($pageName);
-    $stat = stat($sFile);
-    $lastModified = strftime(MODIFIED_FORMAT ,$stat[10]);
-    return $lastModified;
+    if (file_exists($sFile)) {
+        $stat = stat($sFile);
+        $lastModified = strftime(MODIFIED_FORMAT ,$stat[10]);
+        return $lastModified;
+    }
+    else {
+        return "";
+    }
 }
 
 function getWikiPage($pageNameName)
