@@ -15,17 +15,17 @@ if(isset($_REQUEST["zapisz"]) || isset($_REQUEST["save"])) {
         $originalText);
 
     if(isset($_REQUEST["zapisz"])) {
-        header("Location: view.php?" . $pageID);
+        header("Location: " . VIEW_PREFIX . $pageID);
     }
     else {
         header("Location: edit.php?" . $pageID);
     }
 }
 else if(isset($_REQUEST["anuluj"])) {
-    header("Location: view.php?" . $pageID);
+    header("Location: " . VIEW_PREFIX . $pageID);
 }
 else {
-    $lastModified = @pageModified($page);
+    $lastModified = @pageModified($pageID);
     $pageBody = $sAppendBody;
 
     $encodedPageBody = htmlspecialchars(loadPage($pageName, array()));

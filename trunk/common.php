@@ -6,13 +6,19 @@ error_reporting(E_ALL);
 
 require("config.php");
 
-$QUERY_STRING = getenv("QUERY_STRING");
+if (isset($_REQUEST["page"])) {
+    $QUERY_STRING = $_REQUEST["page"];
+}
+else {
+    $QUERY_STRING = getenv("QUERY_STRING");
+}
 
-PAGES_DIRECTORY;
-if($QUERY_STRING != "")
+if($QUERY_STRING != "") {
     $pageName = urldecode($QUERY_STRING);
-else
+}
+else {
     $pageName = MAIN_PAGE_NAME;
+}
 
 $pageID = urlencode($pageName);
 $lastModified = pageModified($pageName);
@@ -182,7 +188,7 @@ function getWikiPage($pageNameName)
                 $sBuf .= "<A HREF=\"$href\">$href</A>";
 
             elseif(pageExists($href))
-                $sBuf .= "<A HREF=\"view.php?$hrefUrl\"><span>$href</span></A>";
+                $sBuf .= "<A HREF=\"" . VIEW_PREFIX . "$hrefUrl\"><span>$href</span></A>";
 
             else
                 $sBuf .= "<A HREF=\"edit.php?$hrefUrl\"><FONT COLOR=RED>$href</FONT></A>";
@@ -197,4 +203,5 @@ function getWikiPage($pageNameName)
 function render($pageNameName) {
     echo getWikiPage($pageNameName);
 }
+
 ?>
