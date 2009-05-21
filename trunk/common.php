@@ -11,6 +11,9 @@ if (isset($_REQUEST["page"])) {
 }
 else {
     $QUERY_STRING = getenv("QUERY_STRING");
+    if (strpos($QUERY_STRING, "=") >= 0) {
+        $QUERY_STRING = "";
+    }
 }
 
 if($QUERY_STRING != "") {
