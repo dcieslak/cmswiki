@@ -21,4 +21,10 @@ define("PAGES_DIRECTORY","pages");
 #define("EDIT_PAGE_NAME","edit-fckeditor");
 define("USE_MERGE", 1);
 
+# Used to render view links. URL is constructed like:
+# $VIEW_TEMPLATE$PAGE_ID
+# If you're using mod_rewrite you may set
+# VIEW_PREFIX="/"
+define("VIEW_PREFIX", "view.php?page=");
+
 ?>

@@ -38,7 +38,7 @@ while(list(,$sLine) = each($arr))
     $sFile = urldecode($sFileUrl);
 
 	$sText = htmlspecialchars(substr($sLine, $i+1));
-	$sAppendBody .= "<A HREF=\"view.php?$sFileUrl\">$sFile</A>";
+	$sAppendBody .= "<A HREF=\"" . VIEW_PREFIX . "$sFileUrl\">$sFile</A>";
 	$sAppendBody .= "<BR />\n";
 }
 
