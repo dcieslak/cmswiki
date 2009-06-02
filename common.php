@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 error_reporting(E_ALL);
 
 # common routines to DWiki
@@ -21,6 +22,11 @@ if($QUERY_STRING != "") {
 }
 else {
     $pageName = MAIN_PAGE_NAME;
+}
+
+# save get arguments into session
+while (list($name, $value) = each($_GET)) {
+    $_SESSION[$name] = $value;
 }
 
 $pageID = urlencode($pageName);
@@ -187,15 +193,24 @@ function getWikiPage($pageNameName)
             $hrefUrl = urlencode($href);
             $rest = substr($sPart,$rBracket+2);
 
-            if(strpos($href,":")>0)
+            if (strpos($href, "param:") !== false) {
+                $name = str_replace("param:", "", $href);
+                if (isset($_SESSION[$name])) {
+                    $sBuf .= $_SESSION[$name];
+                }
+                else {
+                    $sBuf .= "";
+                }
+            }
+            elseif (strpos($href,":")>0) {
                 $sBuf .= "<A HREF=\"$href\">$href</A>";
-
-            elseif(pageExists($href))
+            }
+            elseif (pageExists($href)) {
                 $sBuf .= "<A HREF=\"" . VIEW_PREFIX . "$hrefUrl\"><span>$href</span></A>";
-
-            else
+            }
+            else {
                 $sBuf .= "<A HREF=\"edit.php?$hrefUrl\"><FONT COLOR=RED>$href</FONT></A>";
-
+            }
             $sBuf .= $rest;
         }
 
