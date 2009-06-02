@@ -209,7 +209,7 @@ function getWikiPage($pageNameName)
                 $sBuf .= "<A HREF=\"" . VIEW_PREFIX . "$hrefUrl\"><span>$href</span></A>";
             }
             else {
-                $sBuf .= "<A HREF=\"edit.php?$hrefUrl\"><FONT COLOR=RED>$href</FONT></A>";
+                $sBuf .= "<A HREF=\"edit.php?page=$hrefUrl\"><FONT COLOR=RED>$href</FONT></A>";
             }
             $sBuf .= $rest;
         }

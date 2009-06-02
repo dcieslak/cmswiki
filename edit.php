@@ -18,7 +18,7 @@ if(isset($_REQUEST["zapisz"]) || isset($_REQUEST["save"])) {
         header("Location: " . VIEW_PREFIX . $pageID);
     }
     else {
-        header("Location: edit.php?" . $pageID);
+        header("Location: edit.php?page=" . $pageID);
     }
 }
 else if(isset($_REQUEST["anuluj"])) {
