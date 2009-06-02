@@ -22,10 +22,12 @@ oFCKeditor.ReplaceTextarea() ;
 
 <CENTER>
 
-<FORM METHOD=POST ACTION="edit.php?<?=$pageID?>">
-<INPUT TYPE=SUBMIT NAME="zapisz" VALUE="Save &amp; Close">
-<INPUT TYPE=SUBMIT NAME="save" VALUE="   Save   ">
-<INPUT TYPE=SUBMIT NAME="anuluj" VALUE="Cancel">
+<FORM METHOD=POST ACTION="edit.php">
+
+<INPUT TYPE=SUBMIT NAME="zapisz" VALUE="Save &amp; Close" />
+<INPUT TYPE=SUBMIT NAME="save" VALUE="   Save   " />
+<INPUT TYPE=SUBMIT NAME="anuluj" VALUE="Cancel" />
+<INPUT TYPE="hidden" NAME="page" VALUE="<?=$pageID?>" />
 (<?=$pageName?>)
 
 <p>
