@@ -33,7 +33,7 @@ if(isset($_REQUEST["text"]) && $_REQUEST["text"])
 		$k = strpos($sLine, ".");
 		$sFile = substr($sLine, 0, $k);
 		$pageName = urldecode($sFile);
-		$sAppendBody .= "<A HREF=\"" . VIEW_PREFIX . $sFile\">$pageName</A>";
+		$sAppendBody .= ("<A HREF=\"" . VIEW_PREFIX . $sFile . "\">$pageName</A>");
 		$sAppendBody .= "<BR>";
 	}
 
